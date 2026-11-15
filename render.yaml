@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: shelf-search
+    runtime: python
+    plan: free
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+    buildCommand: pip install -r requirements.txt && python build_data.py
+    startCommand: uvicorn api:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
