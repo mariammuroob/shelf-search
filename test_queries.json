@@ -1,1 +1,300 @@
-[]
+[
+  {
+    "query_id": "q01",
+    "query": "soften the sofa with a snug layer",
+    "required_tags": [
+      "cosy",
+      "soft"
+    ],
+    "category": "home",
+    "kind": "normal"
+  },
+  {
+    "query_id": "q02",
+    "query": "sturdy organisers under $30",
+    "required_tags": [
+      "sturdy",
+      "organised"
+    ],
+    "category": "home",
+    "kind": "normal"
+  },
+  {
+    "query_id": "q03",
+    "query": "make a youngster's corner cheerful",
+    "required_tags": [
+      "cute",
+      "kidsroom"
+    ],
+    "category": "toys",
+    "kind": "normal"
+  },
+  {
+    "query_id": "q04",
+    "query": "compact travel clothes",
+    "required_tags": [
+      "durable",
+      "travel"
+    ],
+    "category": "apparel",
+    "kind": "normal"
+  },
+  {
+    "query_id": "q05",
+    "query": "warm winter layers",
+    "required_tags": [
+      "soft",
+      "winter"
+    ],
+    "category": "apparel",
+    "kind": "normal"
+  },
+  {
+    "query_id": "q06",
+    "query": "breathable gym clothing",
+    "required_tags": [
+      "gym",
+      "active"
+    ],
+    "category": "apparel",
+    "kind": "normal"
+  },
+  {
+    "query_id": "q07",
+    "query": "soft plush gift ideas",
+    "required_tags": [
+      "soft",
+      "gift"
+    ],
+    "category": "toys",
+    "kind": "normal"
+  },
+  {
+    "query_id": "q08",
+    "query": "durable toys for kids",
+    "required_tags": [
+      "durable",
+      "kidsroom"
+    ],
+    "category": "toys",
+    "kind": "normal"
+  },
+  {
+    "query_id": "q09",
+    "query": "keep a little one occupied on a trip",
+    "required_tags": [
+      "travel",
+      "compact"
+    ],
+    "category": "toys",
+    "kind": "normal"
+  },
+  {
+    "query_id": "q10",
+    "query": "stackable kitchen storage",
+    "required_tags": [
+      "compact",
+      "durable"
+    ],
+    "category": "kitchen",
+    "kind": "normal"
+  },
+  {
+    "query_id": "q11",
+    "query": "cute ceramic gifts",
+    "required_tags": [
+      "cute",
+      "gift"
+    ],
+    "category": "kitchen",
+    "kind": "normal"
+  },
+  {
+    "query_id": "q12",
+    "query": "healthy cooking helpers",
+    "required_tags": [
+      "healthy",
+      "sturdy"
+    ],
+    "category": "kitchen",
+    "kind": "normal"
+  },
+  {
+    "query_id": "q13",
+    "query": "portable charging gear",
+    "required_tags": [
+      "compact",
+      "travel"
+    ],
+    "category": "electronics",
+    "kind": "normal"
+  },
+  {
+    "query_id": "q14",
+    "query": "durable desk setup",
+    "required_tags": [
+      "durable",
+      "organised"
+    ],
+    "category": "electronics",
+    "kind": "normal"
+  },
+  {
+    "query_id": "q15",
+    "query": "small wireless gifts",
+    "required_tags": [
+      "gift",
+      "compact"
+    ],
+    "category": "electronics",
+    "kind": "normal"
+  },
+  {
+    "query_id": "q16",
+    "query": "a pampering ritual away from home",
+    "required_tags": [
+      "compact",
+      "travel"
+    ],
+    "category": "beauty",
+    "kind": "normal"
+  },
+  {
+    "query_id": "q17",
+    "query": "calming self care gifts",
+    "required_tags": [
+      "relax",
+      "soft"
+    ],
+    "category": "beauty",
+    "kind": "normal"
+  },
+  {
+    "query_id": "q18",
+    "query": "daily beauty under $20",
+    "required_tags": [
+      "compact",
+      "travel"
+    ],
+    "category": "beauty",
+    "kind": "normal"
+  },
+  {
+    "query_id": "q19",
+    "query": "something nourishing to start the day",
+    "required_tags": [
+      "healthy",
+      "warm"
+    ],
+    "category": "grocery",
+    "kind": "normal"
+  },
+  {
+    "query_id": "q20",
+    "query": "small travel food box",
+    "required_tags": [
+      "travel",
+      "compact"
+    ],
+    "category": "grocery",
+    "kind": "normal"
+  },
+  {
+    "query_id": "q21",
+    "query": "wholesome gifts",
+    "required_tags": [
+      "healthy",
+      "gift"
+    ],
+    "category": "grocery",
+    "kind": "normal"
+  },
+  {
+    "query_id": "q22",
+    "query": "grippy gym equipment",
+    "required_tags": [
+      "gym",
+      "active"
+    ],
+    "category": "sports",
+    "kind": "normal"
+  },
+  {
+    "query_id": "q23",
+    "query": "weather ready winter gear",
+    "required_tags": [
+      "winter",
+      "outdoor"
+    ],
+    "category": "sports",
+    "kind": "normal"
+  },
+  {
+    "query_id": "q24",
+    "query": "lightweight active travel kit",
+    "required_tags": [
+      "compact",
+      "travel"
+    ],
+    "category": "sports",
+    "kind": "normal"
+  },
+  {
+    "query_id": "q25",
+    "query": "cosy home thows",
+    "required_tags": [
+      "cosy",
+      "soft"
+    ],
+    "category": "home",
+    "kind": "awkward"
+  },
+  {
+    "query_id": "q26",
+    "query": "something sturdy",
+    "required_tags": [
+      "sturdy",
+      "durable"
+    ],
+    "category": "kitchen",
+    "kind": "awkward"
+  },
+  {
+    "query_id": "q27",
+    "query": "GIFT IDEAS",
+    "required_tags": [
+      "gift",
+      "cute"
+    ],
+    "category": "toys",
+    "kind": "awkward"
+  },
+  {
+    "query_id": "q28",
+    "query": "warm",
+    "required_tags": [
+      "soft",
+      "winter"
+    ],
+    "category": "apparel",
+    "kind": "awkward"
+  },
+  {
+    "query_id": "q29",
+    "query": "printer ink cartridges",
+    "required_tags": [
+      "printer"
+    ],
+    "category": "electronics",
+    "kind": "off_catalogue"
+  },
+  {
+    "query_id": "q30",
+    "query": "camping tents",
+    "required_tags": [
+      "camping"
+    ],
+    "category": "sports",
+    "kind": "off_catalogue"
+  }
+]
