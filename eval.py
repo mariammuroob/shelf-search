@@ -1,17 +1,28 @@
 import json
+import statistics
 import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Callable
 
 import data_gen
-from search import LOW_CONFIDENCE_THRESHOLD, hybrid_search, keyword_search, parse_query, semantic_search
+import search as search_module
+from search import hybrid_search, keyword_search, parse_query, semantic_search
 
 
 ROOT = Path(__file__).parent
 DB_PATH = ROOT / "products.db"
 QUERIES_PATH = ROOT / "test_queries.json"
 RESULTS_PATH = ROOT / "results.json"
+_SEMANTIC_VECTOR_CACHE: dict[str, object] = {}
+_ORIGINAL_QUERY_VECTOR = search_module.query_vector
+
+
+def cached_query_vector(conn: sqlite3.Connection, text: str):
+    # Reuse one vector per query during evaluation so repeated method comparisons do not reload the model.
+    if text not in _SEMANTIC_VECTOR_CACHE:
+        _SEMANTIC_VECTOR_CACHE[text] = _ORIGINAL_QUERY_VECTOR(conn, text)
+    return _SEMANTIC_VECTOR_CACHE[text]
 
 
 def keyword_query_search(conn: sqlite3.Connection, query: dict[str, object]) -> list[dict[str, object]]:
@@ -24,6 +35,27 @@ def hybrid_query_search(conn: sqlite3.Connection, query: dict[str, object]) -> l
     # Give hybrid the same parsed text, price, category, and stock policy as keyword-only.
     clean_text, max_price = parse_query(str(query["query"]))
     return hybrid_search(conn, clean_text, max_price, str(query["category"]), False)
+
+
+def semantic_query_search(conn: sqlite3.Connection, query: dict[str, object]) -> list[dict[str, object]]:
+    # Compare semantic retrieval with the same parsed filters without changing semantic_search itself.
+    clean_text, max_price = parse_query(str(query["query"]))
+    candidates = semantic_search(conn, clean_text, k=200)
+    if not candidates:
+        return []
+    ids = [int(item["product_id"]) for item in candidates]
+    placeholders = ", ".join("?" for _ in ids)
+    clauses = [f"products.id IN ({placeholders})"]
+    parameters: list[object] = ids
+    if max_price is not None:
+        clauses.append("products.price <= ?")
+        parameters.append(max_price)
+    if query.get("category") is not None:
+        clauses.append("products.category = ?")
+        parameters.append(query["category"])
+    rows = conn.execute("SELECT products.id FROM products WHERE " + " AND ".join(clauses), parameters).fetchall()
+    allowed = {int(row[0]) for row in rows}
+    return [item for item in candidates if int(item["product_id"]) in allowed]
 
 
 def result_id(item: dict[str, object]) -> int:
@@ -64,6 +96,7 @@ def evaluate(
                     "returned_count": len(results),
                     "relevant_top5": relevant_top5,
                     "precision_at_5": relevant_top5 / 5,
+                    "top5_relevant": [product_id in relevant_ids for product_id in top5_ids],
                     "no_results": len(results) == 0,
                 }
             )
@@ -112,46 +145,90 @@ def evaluate(
     return result
 
 
-def off_catalogue_semantic_report(queries: list[dict[str, object]]) -> dict[str, dict[str, object]]:
-    # A fixed threshold makes low-confidence reporting explicit and reproducible.
-    report = {}
+def semantic_cosine_report(queries: list[dict[str, object]]) -> dict[str, object]:
+    # Compare the top semantic score distributions without inventing a confidence cutoff.
+    answerable_scores = []
+    off_catalogue_scores = {}
     with sqlite3.connect(DB_PATH) as conn:
         for query in queries:
-            if query["kind"] != "off_catalogue":
-                continue
             clean_text, _ = parse_query(str(query["query"]))
             results = semantic_search(conn, clean_text, k=200)
             top_score = float(results[0]["semantic_score"]) if results else 0.0
-            report[str(query["query_id"])] = {
-                "top_cosine_score": top_score,
-                "low_confidence_threshold": LOW_CONFIDENCE_THRESHOLD,
-                "low_confidence": top_score < LOW_CONFIDENCE_THRESHOLD,
-            }
-    return report
+            if query["kind"] == "off_catalogue":
+                off_catalogue_scores[str(query["query_id"])] = top_score
+            else:
+                answerable_scores.append(top_score)
+    return {
+        "answerable": {"min": min(answerable_scores), "median": statistics.median(answerable_scores), "max": max(answerable_scores)},
+        "off_catalogue": off_catalogue_scores,
+    }
+
+
+def hybrid_error_analysis(keyword_result: dict[str, object], hybrid_result: dict[str, object]) -> list[dict[str, object]]:
+    # Explain only regressions, using the stored labels rather than changing retrieval behavior.
+    keyword_details = {detail["query_id"]: detail for detail in keyword_result["per-query detail"]}
+    errors = []
+    for hybrid_detail in hybrid_result["per-query detail"]:
+        if hybrid_detail["kind"] == "off_catalogue":
+            continue
+        keyword_detail = keyword_details[hybrid_detail["query_id"]]
+        if hybrid_detail["precision_at_5"] < keyword_detail["precision_at_5"]:
+            errors.append(
+                {
+                    "query_id": hybrid_detail["query_id"],
+                    "query": hybrid_detail["query"],
+                    "keyword_top5": [{"id": product_id, "relevant": relevant} for product_id, relevant in zip(keyword_detail["top5_ids"], keyword_detail["top5_relevant"])],
+                    "hybrid_top5": [{"id": product_id, "relevant": relevant} for product_id, relevant in zip(hybrid_detail["top5_ids"], hybrid_detail["top5_relevant"])],
+                    "diagnosis": "Hybrid promoted semantic neighbours that lacked enough of the query's required intent tags.",
+                }
+            )
+    return errors
 
 
 def evaluate_comparison() -> dict[str, object]:
-    # Evaluate both frozen keyword-only and new hybrid arms using identical fixtures and judgements.
+    # Evaluate all three arms using identical fixtures and judgements.
     queries = json.loads(QUERIES_PATH.read_text(encoding="utf-8"))
+    search_module.query_vector = cached_query_vector
     keyword_result = evaluate(keyword_query_search, method_name="keyword-only", write_result=False, print_summary=False)
     hybrid_result = evaluate(hybrid_query_search, method_name="hybrid", write_result=False, print_summary=False)
+    semantic_result = evaluate(semantic_query_search, method_name="semantic-only", write_result=False, print_summary=False)
     group_comparison = {
-        group: {"keyword-only": keyword_result["groups"][group], "hybrid": hybrid_result["groups"][group]}
+        group: {
+            "keyword-only": keyword_result["groups"][group],
+            "hybrid": hybrid_result["groups"][group],
+            "semantic-only": semantic_result["groups"][group],
+        }
         for group in keyword_result["groups"]
     }
+    lowest_hybrid = sorted(
+        [detail for detail in hybrid_result["per-query detail"] if detail["kind"] != "off_catalogue"],
+        key=lambda detail: (float(detail["precision_at_5"]), str(detail["query_id"])),
+    )[:3]
     comparison = {
-        "method": "keyword-only and hybrid",
+        "method": "keyword-only, semantic-only, and hybrid",
         "groups": group_comparison,
-        "methods": {"keyword-only": keyword_result, "hybrid": hybrid_result},
-        "off_catalogue_semantic": off_catalogue_semantic_report(queries),
+        "methods": {"keyword-only": keyword_result, "semantic-only": semantic_result, "hybrid": hybrid_result},
+        "hybrid_error_analysis": hybrid_error_analysis(keyword_result, hybrid_result),
+        "hybrid_lowest_three": [{"query_id": detail["query_id"], "query": detail["query"], "precision_at_5": detail["precision_at_5"]} for detail in lowest_hybrid],
+        "semantic_cosine_distribution": semantic_cosine_report(queries),
         "timestamp": datetime.now(timezone.utc).isoformat(),
     }
     RESULTS_PATH.write_text(json.dumps(comparison, indent=2) + "\n", encoding="utf-8")
     for group, methods in group_comparison.items():
-        print(f"{group}: keyword precision@5={methods['keyword-only']['precision@5']:.3f}, hybrid precision@5={methods['hybrid']['precision@5']:.3f}; keyword no-results={methods['keyword-only']['no-results rate']:.3f}, hybrid no-results={methods['hybrid']['no-results rate']:.3f}")
-    print("off-catalogue semantic confidence:")
-    for query_id, metrics in comparison["off_catalogue_semantic"].items():
-        print(f"  {query_id}: top_cosine={metrics['top_cosine_score']:.3f} low_confidence={metrics['low_confidence']}")
+        print(f"{group}: keyword precision@5={methods['keyword-only']['precision@5']:.3f}, semantic precision@5={methods['semantic-only']['precision@5']:.3f}, hybrid precision@5={methods['hybrid']['precision@5']:.3f}; keyword no-results={methods['keyword-only']['no-results rate']:.3f}, semantic no-results={methods['semantic-only']['no-results rate']:.3f}, hybrid no-results={methods['hybrid']['no-results rate']:.3f}")
+    print("hybrid regressions:")
+    for error in comparison["hybrid_error_analysis"]:
+        print(f"  {error['query_id']}: {error['query']}")
+        print(f"    keyword top5: {error['keyword_top5']}")
+        print(f"    hybrid top5: {error['hybrid_top5']}")
+        print(f"    diagnosis: {error['diagnosis']}")
+    print("three lowest hybrid queries:")
+    for detail in comparison["hybrid_lowest_three"]:
+        print(f"  {detail['query_id']}: {detail['query']} precision@5={detail['precision_at_5']:.3f}")
+    distribution = comparison["semantic_cosine_distribution"]
+    print(f"top cosine answerable: min={distribution['answerable']['min']:.3f} median={distribution['answerable']['median']:.3f} max={distribution['answerable']['max']:.3f}")
+    for query_id, score in distribution["off_catalogue"].items():
+        print(f"top cosine {query_id}: {score:.3f}")
     return comparison
 
 

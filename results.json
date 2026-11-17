@@ -1,5 +1,5 @@
 {
-  "method": "keyword-only and hybrid",
+  "method": "keyword-only, semantic-only, and hybrid",
   "groups": {
     "all_answerable": {
       "keyword-only": {
@@ -9,6 +9,11 @@
       },
       "hybrid": {
         "precision@5": 0.29285714285714287,
+        "no-results rate": 0.0,
+        "n": 28
+      },
+      "semantic-only": {
+        "precision@5": 0.15000000000000005,
         "no-results rate": 0.0,
         "n": 28
       }
@@ -23,6 +28,11 @@
         "precision@5": 0.31428571428571433,
         "no-results rate": 0.0,
         "n": 21
+      },
+      "semantic-only": {
+        "precision@5": 0.12380952380952381,
+        "no-results rate": 0.0,
+        "n": 21
       }
     },
     "no_word_overlap": {
@@ -32,6 +42,11 @@
         "n": 7
       },
       "hybrid": {
+        "precision@5": 0.22857142857142856,
+        "no-results rate": 0.0,
+        "n": 7
+      },
+      "semantic-only": {
         "precision@5": 0.22857142857142856,
         "no-results rate": 0.0,
         "n": 7
@@ -70,6 +85,7 @@
           "returned_count": 0,
           "relevant_top5": 0,
           "precision_at_5": 0.0,
+          "top5_relevant": [],
           "no_results": true,
           "group": "no_word_overlap"
         },
@@ -87,6 +103,13 @@
           "returned_count": 6,
           "relevant_top5": 1,
           "precision_at_5": 0.2,
+          "top5_relevant": [
+            false,
+            true,
+            false,
+            false,
+            false
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -98,6 +121,7 @@
           "returned_count": 0,
           "relevant_top5": 0,
           "precision_at_5": 0.0,
+          "top5_relevant": [],
           "no_results": true,
           "group": "no_word_overlap"
         },
@@ -115,6 +139,13 @@
           "returned_count": 15,
           "relevant_top5": 5,
           "precision_at_5": 1.0,
+          "top5_relevant": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -132,6 +163,13 @@
           "returned_count": 35,
           "relevant_top5": 5,
           "precision_at_5": 1.0,
+          "top5_relevant": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -149,6 +187,13 @@
           "returned_count": 15,
           "relevant_top5": 4,
           "precision_at_5": 0.8,
+          "top5_relevant": [
+            true,
+            true,
+            false,
+            true,
+            true
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -166,6 +211,13 @@
           "returned_count": 37,
           "relevant_top5": 0,
           "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -183,6 +235,13 @@
           "returned_count": 75,
           "relevant_top5": 4,
           "precision_at_5": 0.8,
+          "top5_relevant": [
+            true,
+            true,
+            true,
+            true,
+            false
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -194,6 +253,7 @@
           "returned_count": 0,
           "relevant_top5": 0,
           "precision_at_5": 0.0,
+          "top5_relevant": [],
           "no_results": true,
           "group": "shared_word"
         },
@@ -211,6 +271,13 @@
           "returned_count": 75,
           "relevant_top5": 2,
           "precision_at_5": 0.4,
+          "top5_relevant": [
+            true,
+            false,
+            true,
+            false,
+            false
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -228,6 +295,13 @@
           "returned_count": 50,
           "relevant_top5": 5,
           "precision_at_5": 1.0,
+          "top5_relevant": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -245,6 +319,13 @@
           "returned_count": 15,
           "relevant_top5": 4,
           "precision_at_5": 0.8,
+          "top5_relevant": [
+            true,
+            true,
+            true,
+            false,
+            true
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -262,6 +343,13 @@
           "returned_count": 22,
           "relevant_top5": 0,
           "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -279,6 +367,13 @@
           "returned_count": 15,
           "relevant_top5": 0,
           "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
           "no_results": false,
           "group": "no_word_overlap"
         },
@@ -296,6 +391,13 @@
           "returned_count": 42,
           "relevant_top5": 2,
           "precision_at_5": 0.4,
+          "top5_relevant": [
+            true,
+            true,
+            false,
+            false,
+            false
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -307,6 +409,7 @@
           "returned_count": 0,
           "relevant_top5": 0,
           "precision_at_5": 0.0,
+          "top5_relevant": [],
           "no_results": true,
           "group": "no_word_overlap"
         },
@@ -324,6 +427,13 @@
           "returned_count": 28,
           "relevant_top5": 0,
           "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -341,6 +451,13 @@
           "returned_count": 10,
           "relevant_top5": 0,
           "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -352,6 +469,7 @@
           "returned_count": 0,
           "relevant_top5": 0,
           "precision_at_5": 0.0,
+          "top5_relevant": [],
           "no_results": true,
           "group": "no_word_overlap"
         },
@@ -369,6 +487,13 @@
           "returned_count": 51,
           "relevant_top5": 0,
           "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -386,6 +511,13 @@
           "returned_count": 23,
           "relevant_top5": 1,
           "precision_at_5": 0.2,
+          "top5_relevant": [
+            true,
+            false,
+            false,
+            false,
+            false
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -403,6 +535,13 @@
           "returned_count": 37,
           "relevant_top5": 1,
           "precision_at_5": 0.2,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            true
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -420,6 +559,13 @@
           "returned_count": 29,
           "relevant_top5": 0,
           "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -437,6 +583,13 @@
           "returned_count": 39,
           "relevant_top5": 0,
           "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -454,6 +607,13 @@
           "returned_count": 75,
           "relevant_top5": 5,
           "precision_at_5": 1.0,
+          "top5_relevant": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -471,6 +631,13 @@
           "returned_count": 15,
           "relevant_top5": 5,
           "precision_at_5": 1.0,
+          "top5_relevant": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -482,6 +649,7 @@
           "returned_count": 0,
           "relevant_top5": 0,
           "precision_at_5": 0.0,
+          "top5_relevant": [],
           "no_results": true,
           "group": "no_word_overlap"
         },
@@ -499,6 +667,13 @@
           "returned_count": 15,
           "relevant_top5": 0,
           "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
           "no_results": false,
           "group": "no_word_overlap"
         },
@@ -510,6 +685,7 @@
           "returned_count": 0,
           "relevant_top5": 0,
           "precision_at_5": 0.0,
+          "top5_relevant": [],
           "no_results": true
         },
         {
@@ -526,10 +702,761 @@
           "returned_count": 15,
           "relevant_top5": 0,
           "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
           "no_results": false
         }
       ],
-      "timestamp": "2026-11-17T07:18:48.853538+00:00"
+      "timestamp": "2026-11-17T07:26:19.938030+00:00"
+    },
+    "semantic-only": {
+      "method": "semantic-only",
+      "precision@5": 0.15000000000000005,
+      "no-results rate": 0.0,
+      "n": 28,
+      "groups": {
+        "all_answerable": {
+          "precision@5": 0.15000000000000005,
+          "no-results rate": 0.0,
+          "n": 28
+        },
+        "shared_word": {
+          "precision@5": 0.12380952380952381,
+          "no-results rate": 0.0,
+          "n": 21
+        },
+        "no_word_overlap": {
+          "precision@5": 0.22857142857142856,
+          "no-results rate": 0.0,
+          "n": 7
+        }
+      },
+      "per-query detail": [
+        {
+          "query_id": "q01",
+          "query": "soften the sofa with a snug layer",
+          "kind": "normal",
+          "top5_ids": [
+            67,
+            7,
+            35,
+            70,
+            20
+          ],
+          "returned_count": 48,
+          "relevant_top5": 1,
+          "precision_at_5": 0.2,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          "no_results": false,
+          "group": "no_word_overlap"
+        },
+        {
+          "query_id": "q02",
+          "query": "sturdy organisers under $30",
+          "kind": "normal",
+          "top5_ids": [
+            38,
+            17,
+            32,
+            7,
+            18
+          ],
+          "returned_count": 12,
+          "relevant_top5": 1,
+          "precision_at_5": 0.2,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          "no_results": false,
+          "group": "shared_word"
+        },
+        {
+          "query_id": "q03",
+          "query": "make a youngster's corner cheerful",
+          "kind": "normal",
+          "top5_ids": [
+            181,
+            206,
+            166,
+            217,
+            161
+          ],
+          "returned_count": 59,
+          "relevant_top5": 4,
+          "precision_at_5": 0.8,
+          "top5_relevant": [
+            true,
+            true,
+            true,
+            false,
+            true
+          ],
+          "no_results": false,
+          "group": "no_word_overlap"
+        },
+        {
+          "query_id": "q04",
+          "query": "compact travel clothes",
+          "kind": "normal",
+          "top5_ids": [
+            145,
+            101,
+            146,
+            86,
+            131
+          ],
+          "returned_count": 58,
+          "relevant_top5": 0,
+          "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "no_results": false,
+          "group": "shared_word"
+        },
+        {
+          "query_id": "q05",
+          "query": "warm winter layers",
+          "kind": "normal",
+          "top5_ids": [
+            146,
+            86,
+            125,
+            92,
+            106
+          ],
+          "returned_count": 67,
+          "relevant_top5": 3,
+          "precision_at_5": 0.6,
+          "top5_relevant": [
+            true,
+            true,
+            false,
+            false,
+            true
+          ],
+          "no_results": false,
+          "group": "shared_word"
+        },
+        {
+          "query_id": "q06",
+          "query": "breathable gym clothing",
+          "kind": "normal",
+          "top5_ids": [
+            86,
+            146,
+            119,
+            101,
+            131
+          ],
+          "returned_count": 67,
+          "relevant_top5": 0,
+          "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "no_results": false,
+          "group": "shared_word"
+        },
+        {
+          "query_id": "q07",
+          "query": "soft plush gift ideas",
+          "kind": "normal",
+          "top5_ids": [
+            187,
+            212,
+            157,
+            217,
+            152
+          ],
+          "returned_count": 49,
+          "relevant_top5": 0,
+          "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "no_results": false,
+          "group": "shared_word"
+        },
+        {
+          "query_id": "q08",
+          "query": "durable toys for kids",
+          "kind": "normal",
+          "top5_ids": [
+            206,
+            182,
+            152,
+            156,
+            212
+          ],
+          "returned_count": 69,
+          "relevant_top5": 0,
+          "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "no_results": false,
+          "group": "shared_word"
+        },
+        {
+          "query_id": "q09",
+          "query": "keep a little one occupied on a trip",
+          "kind": "normal",
+          "top5_ids": [
+            158,
+            218,
+            155,
+            203,
+            185
+          ],
+          "returned_count": 45,
+          "relevant_top5": 3,
+          "precision_at_5": 0.6,
+          "top5_relevant": [
+            true,
+            true,
+            false,
+            true,
+            false
+          ],
+          "no_results": false,
+          "group": "shared_word"
+        },
+        {
+          "query_id": "q10",
+          "query": "stackable kitchen storage",
+          "kind": "normal",
+          "top5_ids": [
+            235,
+            250,
+            255,
+            240,
+            251
+          ],
+          "returned_count": 57,
+          "relevant_top5": 0,
+          "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "no_results": false,
+          "group": "shared_word"
+        },
+        {
+          "query_id": "q11",
+          "query": "cute ceramic gifts",
+          "kind": "normal",
+          "top5_ids": [
+            229,
+            274,
+            289,
+            256,
+            244
+          ],
+          "returned_count": 45,
+          "relevant_top5": 0,
+          "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "no_results": false,
+          "group": "shared_word"
+        },
+        {
+          "query_id": "q12",
+          "query": "healthy cooking helpers",
+          "kind": "normal",
+          "top5_ids": [
+            295,
+            265,
+            275,
+            293,
+            285
+          ],
+          "returned_count": 49,
+          "relevant_top5": 2,
+          "precision_at_5": 0.4,
+          "top5_relevant": [
+            true,
+            true,
+            false,
+            false,
+            false
+          ],
+          "no_results": false,
+          "group": "shared_word"
+        },
+        {
+          "query_id": "q13",
+          "query": "portable charging gear",
+          "kind": "normal",
+          "top5_ids": [
+            367,
+            322,
+            372,
+            307,
+            357
+          ],
+          "returned_count": 62,
+          "relevant_top5": 0,
+          "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "no_results": false,
+          "group": "shared_word"
+        },
+        {
+          "query_id": "q14",
+          "query": "durable desk setup",
+          "kind": "normal",
+          "top5_ids": [
+            346,
+            316,
+            371,
+            306,
+            351
+          ],
+          "returned_count": 50,
+          "relevant_top5": 0,
+          "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "no_results": false,
+          "group": "no_word_overlap"
+        },
+        {
+          "query_id": "q15",
+          "query": "small wireless gifts",
+          "kind": "normal",
+          "top5_ids": [
+            313,
+            331,
+            359,
+            301,
+            363
+          ],
+          "returned_count": 66,
+          "relevant_top5": 1,
+          "precision_at_5": 0.2,
+          "top5_relevant": [
+            true,
+            false,
+            false,
+            false,
+            false
+          ],
+          "no_results": false,
+          "group": "shared_word"
+        },
+        {
+          "query_id": "q16",
+          "query": "a pampering ritual away from home",
+          "kind": "normal",
+          "top5_ids": [
+            422,
+            446,
+            379,
+            384,
+            417
+          ],
+          "returned_count": 57,
+          "relevant_top5": 2,
+          "precision_at_5": 0.4,
+          "top5_relevant": [
+            true,
+            false,
+            false,
+            false,
+            true
+          ],
+          "no_results": false,
+          "group": "no_word_overlap"
+        },
+        {
+          "query_id": "q17",
+          "query": "calming self care gifts",
+          "kind": "normal",
+          "top5_ids": [
+            389,
+            449,
+            379,
+            422,
+            417
+          ],
+          "returned_count": 53,
+          "relevant_top5": 0,
+          "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "no_results": false,
+          "group": "shared_word"
+        },
+        {
+          "query_id": "q18",
+          "query": "daily beauty under $20",
+          "kind": "normal",
+          "top5_ids": [
+            441,
+            391,
+            438,
+            431,
+            397
+          ],
+          "returned_count": 9,
+          "relevant_top5": 1,
+          "precision_at_5": 0.2,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            true
+          ],
+          "no_results": false,
+          "group": "shared_word"
+        },
+        {
+          "query_id": "q19",
+          "query": "something nourishing to start the day",
+          "kind": "normal",
+          "top5_ids": [
+            452,
+            464,
+            524,
+            494,
+            512
+          ],
+          "returned_count": 33,
+          "relevant_top5": 0,
+          "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "no_results": false,
+          "group": "no_word_overlap"
+        },
+        {
+          "query_id": "q20",
+          "query": "small travel food box",
+          "kind": "normal",
+          "top5_ids": [
+            524,
+            479,
+            514,
+            454,
+            504
+          ],
+          "returned_count": 35,
+          "relevant_top5": 0,
+          "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "no_results": false,
+          "group": "shared_word"
+        },
+        {
+          "query_id": "q21",
+          "query": "wholesome gifts",
+          "kind": "normal",
+          "top5_ids": [
+            461,
+            491,
+            500,
+            489,
+            456
+          ],
+          "returned_count": 26,
+          "relevant_top5": 0,
+          "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "no_results": false,
+          "group": "shared_word"
+        },
+        {
+          "query_id": "q22",
+          "query": "grippy gym equipment",
+          "kind": "normal",
+          "top5_ids": [
+            553,
+            578,
+            583,
+            558,
+            566
+          ],
+          "returned_count": 64,
+          "relevant_top5": 1,
+          "precision_at_5": 0.2,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            true
+          ],
+          "no_results": false,
+          "group": "shared_word"
+        },
+        {
+          "query_id": "q23",
+          "query": "weather ready winter gear",
+          "kind": "normal",
+          "top5_ids": [
+            569,
+            599,
+            552,
+            577,
+            527
+          ],
+          "returned_count": 55,
+          "relevant_top5": 0,
+          "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "no_results": false,
+          "group": "shared_word"
+        },
+        {
+          "query_id": "q24",
+          "query": "lightweight active travel kit",
+          "kind": "normal",
+          "top5_ids": [
+            582,
+            530,
+            597,
+            560,
+            537
+          ],
+          "returned_count": 60,
+          "relevant_top5": 0,
+          "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "no_results": false,
+          "group": "shared_word"
+        },
+        {
+          "query_id": "q25",
+          "query": "cosy home thows",
+          "kind": "awkward",
+          "top5_ids": [
+            5,
+            65,
+            73,
+            55,
+            35
+          ],
+          "returned_count": 43,
+          "relevant_top5": 1,
+          "precision_at_5": 0.2,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          "no_results": false,
+          "group": "shared_word"
+        },
+        {
+          "query_id": "q26",
+          "query": "something sturdy",
+          "kind": "awkward",
+          "top5_ids": [
+            295,
+            235,
+            265,
+            257,
+            285
+          ],
+          "returned_count": 25,
+          "relevant_top5": 0,
+          "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "no_results": false,
+          "group": "shared_word"
+        },
+        {
+          "query_id": "q27",
+          "query": "GIFT IDEAS",
+          "kind": "awkward",
+          "top5_ids": [
+            199,
+            205,
+            181,
+            160,
+            169
+          ],
+          "returned_count": 60,
+          "relevant_top5": 1,
+          "precision_at_5": 0.2,
+          "top5_relevant": [
+            false,
+            false,
+            true,
+            false,
+            false
+          ],
+          "no_results": false,
+          "group": "no_word_overlap"
+        },
+        {
+          "query_id": "q28",
+          "query": "warm",
+          "kind": "awkward",
+          "top5_ids": [
+            122,
+            143,
+            128,
+            98,
+            85
+          ],
+          "returned_count": 61,
+          "relevant_top5": 0,
+          "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "no_results": false,
+          "group": "no_word_overlap"
+        },
+        {
+          "query_id": "q29",
+          "query": "printer ink cartridges",
+          "kind": "off_catalogue",
+          "top5_ids": [
+            340,
+            348,
+            343,
+            364,
+            358
+          ],
+          "returned_count": 59,
+          "relevant_top5": 0,
+          "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "no_results": false
+        },
+        {
+          "query_id": "q30",
+          "query": "camping tents",
+          "kind": "off_catalogue",
+          "top5_ids": [
+            585,
+            570,
+            580,
+            540,
+            590
+          ],
+          "returned_count": 49,
+          "relevant_top5": 0,
+          "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "no_results": false
+        }
+      ],
+      "timestamp": "2026-11-17T07:26:35.215511+00:00"
     },
     "hybrid": {
       "method": "hybrid",
@@ -568,6 +1495,13 @@
           "returned_count": 5,
           "relevant_top5": 1,
           "precision_at_5": 0.2,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
           "no_results": false,
           "group": "no_word_overlap"
         },
@@ -585,6 +1519,13 @@
           "returned_count": 5,
           "relevant_top5": 1,
           "precision_at_5": 0.2,
+          "top5_relevant": [
+            false,
+            true,
+            false,
+            false,
+            false
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -602,6 +1543,13 @@
           "returned_count": 5,
           "relevant_top5": 4,
           "precision_at_5": 0.8,
+          "top5_relevant": [
+            true,
+            true,
+            true,
+            false,
+            true
+          ],
           "no_results": false,
           "group": "no_word_overlap"
         },
@@ -619,6 +1567,13 @@
           "returned_count": 5,
           "relevant_top5": 3,
           "precision_at_5": 0.6,
+          "top5_relevant": [
+            true,
+            true,
+            false,
+            false,
+            true
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -636,6 +1591,13 @@
           "returned_count": 5,
           "relevant_top5": 4,
           "precision_at_5": 0.8,
+          "top5_relevant": [
+            true,
+            true,
+            true,
+            true,
+            false
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -653,6 +1615,13 @@
           "returned_count": 5,
           "relevant_top5": 2,
           "precision_at_5": 0.4,
+          "top5_relevant": [
+            true,
+            false,
+            false,
+            true,
+            false
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -670,6 +1639,13 @@
           "returned_count": 5,
           "relevant_top5": 0,
           "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -687,6 +1663,13 @@
           "returned_count": 5,
           "relevant_top5": 2,
           "precision_at_5": 0.4,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            true,
+            true
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -704,6 +1687,13 @@
           "returned_count": 5,
           "relevant_top5": 3,
           "precision_at_5": 0.6,
+          "top5_relevant": [
+            true,
+            true,
+            false,
+            true,
+            false
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -721,6 +1711,13 @@
           "returned_count": 5,
           "relevant_top5": 1,
           "precision_at_5": 0.2,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -738,6 +1735,13 @@
           "returned_count": 5,
           "relevant_top5": 5,
           "precision_at_5": 1.0,
+          "top5_relevant": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -755,6 +1759,13 @@
           "returned_count": 5,
           "relevant_top5": 3,
           "precision_at_5": 0.6,
+          "top5_relevant": [
+            true,
+            true,
+            false,
+            true,
+            false
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -772,6 +1783,13 @@
           "returned_count": 5,
           "relevant_top5": 0,
           "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -789,6 +1807,13 @@
           "returned_count": 5,
           "relevant_top5": 0,
           "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
           "no_results": false,
           "group": "no_word_overlap"
         },
@@ -806,6 +1831,13 @@
           "returned_count": 5,
           "relevant_top5": 2,
           "precision_at_5": 0.4,
+          "top5_relevant": [
+            true,
+            false,
+            false,
+            false,
+            true
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -823,6 +1855,13 @@
           "returned_count": 5,
           "relevant_top5": 2,
           "precision_at_5": 0.4,
+          "top5_relevant": [
+            true,
+            false,
+            false,
+            false,
+            true
+          ],
           "no_results": false,
           "group": "no_word_overlap"
         },
@@ -840,6 +1879,13 @@
           "returned_count": 5,
           "relevant_top5": 0,
           "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -857,6 +1903,13 @@
           "returned_count": 5,
           "relevant_top5": 0,
           "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -874,6 +1927,13 @@
           "returned_count": 5,
           "relevant_top5": 0,
           "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
           "no_results": false,
           "group": "no_word_overlap"
         },
@@ -891,6 +1951,13 @@
           "returned_count": 5,
           "relevant_top5": 0,
           "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -908,6 +1975,13 @@
           "returned_count": 5,
           "relevant_top5": 1,
           "precision_at_5": 0.2,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -925,6 +1999,13 @@
           "returned_count": 5,
           "relevant_top5": 1,
           "precision_at_5": 0.2,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            true
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -942,6 +2023,13 @@
           "returned_count": 5,
           "relevant_top5": 0,
           "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -959,6 +2047,13 @@
           "returned_count": 5,
           "relevant_top5": 1,
           "precision_at_5": 0.2,
+          "top5_relevant": [
+            false,
+            true,
+            false,
+            false,
+            false
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -976,6 +2071,13 @@
           "returned_count": 5,
           "relevant_top5": 1,
           "precision_at_5": 0.2,
+          "top5_relevant": [
+            false,
+            true,
+            false,
+            false,
+            false
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -993,6 +2095,13 @@
           "returned_count": 5,
           "relevant_top5": 3,
           "precision_at_5": 0.6,
+          "top5_relevant": [
+            true,
+            true,
+            true,
+            false,
+            false
+          ],
           "no_results": false,
           "group": "shared_word"
         },
@@ -1010,6 +2119,13 @@
           "returned_count": 5,
           "relevant_top5": 1,
           "precision_at_5": 0.2,
+          "top5_relevant": [
+            false,
+            false,
+            true,
+            false,
+            false
+          ],
           "no_results": false,
           "group": "no_word_overlap"
         },
@@ -1027,6 +2143,13 @@
           "returned_count": 5,
           "relevant_top5": 0,
           "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
           "no_results": false,
           "group": "no_word_overlap"
         },
@@ -1044,6 +2167,13 @@
           "returned_count": 5,
           "relevant_top5": 0,
           "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
           "no_results": false
         },
         {
@@ -1060,23 +2190,440 @@
           "returned_count": 5,
           "relevant_top5": 0,
           "precision_at_5": 0.0,
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
           "no_results": false
         }
       ],
-      "timestamp": "2026-11-17T07:19:03.338104+00:00"
+      "timestamp": "2026-11-17T07:26:35.057592+00:00"
     }
   },
-  "off_catalogue_semantic": {
-    "q29": {
-      "top_cosine_score": 0.5514938235282898,
-      "low_confidence_threshold": 0.35,
-      "low_confidence": false
+  "hybrid_error_analysis": [
+    {
+      "query_id": "q04",
+      "query": "compact travel clothes",
+      "keyword_top5": [
+        {
+          "id": 97,
+          "relevant": true
+        },
+        {
+          "id": 82,
+          "relevant": true
+        },
+        {
+          "id": 112,
+          "relevant": true
+        },
+        {
+          "id": 117,
+          "relevant": true
+        },
+        {
+          "id": 127,
+          "relevant": true
+        }
+      ],
+      "hybrid_top5": [
+        {
+          "id": 97,
+          "relevant": true
+        },
+        {
+          "id": 87,
+          "relevant": true
+        },
+        {
+          "id": 145,
+          "relevant": false
+        },
+        {
+          "id": 101,
+          "relevant": false
+        },
+        {
+          "id": 77,
+          "relevant": true
+        }
+      ],
+      "diagnosis": "Hybrid promoted semantic neighbours that lacked enough of the query's required intent tags."
     },
-    "q30": {
-      "top_cosine_score": 0.6593454480171204,
-      "low_confidence_threshold": 0.35,
-      "low_confidence": false
+    {
+      "query_id": "q05",
+      "query": "warm winter layers",
+      "keyword_top5": [
+        {
+          "id": 81,
+          "relevant": true
+        },
+        {
+          "id": 106,
+          "relevant": true
+        },
+        {
+          "id": 141,
+          "relevant": true
+        },
+        {
+          "id": 111,
+          "relevant": true
+        },
+        {
+          "id": 86,
+          "relevant": true
+        }
+      ],
+      "hybrid_top5": [
+        {
+          "id": 146,
+          "relevant": true
+        },
+        {
+          "id": 86,
+          "relevant": true
+        },
+        {
+          "id": 106,
+          "relevant": true
+        },
+        {
+          "id": 141,
+          "relevant": true
+        },
+        {
+          "id": 125,
+          "relevant": false
+        }
+      ],
+      "diagnosis": "Hybrid promoted semantic neighbours that lacked enough of the query's required intent tags."
+    },
+    {
+      "query_id": "q06",
+      "query": "breathable gym clothing",
+      "keyword_top5": [
+        {
+          "id": 133,
+          "relevant": true
+        },
+        {
+          "id": 88,
+          "relevant": true
+        },
+        {
+          "id": 93,
+          "relevant": false
+        },
+        {
+          "id": 103,
+          "relevant": true
+        },
+        {
+          "id": 118,
+          "relevant": true
+        }
+      ],
+      "hybrid_top5": [
+        {
+          "id": 133,
+          "relevant": true
+        },
+        {
+          "id": 123,
+          "relevant": false
+        },
+        {
+          "id": 93,
+          "relevant": false
+        },
+        {
+          "id": 103,
+          "relevant": true
+        },
+        {
+          "id": 138,
+          "relevant": false
+        }
+      ],
+      "diagnosis": "Hybrid promoted semantic neighbours that lacked enough of the query's required intent tags."
+    },
+    {
+      "query_id": "q08",
+      "query": "durable toys for kids",
+      "keyword_top5": [
+        {
+          "id": 187,
+          "relevant": true
+        },
+        {
+          "id": 157,
+          "relevant": true
+        },
+        {
+          "id": 172,
+          "relevant": true
+        },
+        {
+          "id": 202,
+          "relevant": true
+        },
+        {
+          "id": 207,
+          "relevant": false
+        }
+      ],
+      "hybrid_top5": [
+        {
+          "id": 182,
+          "relevant": false
+        },
+        {
+          "id": 167,
+          "relevant": false
+        },
+        {
+          "id": 152,
+          "relevant": false
+        },
+        {
+          "id": 157,
+          "relevant": true
+        },
+        {
+          "id": 217,
+          "relevant": true
+        }
+      ],
+      "diagnosis": "Hybrid promoted semantic neighbours that lacked enough of the query's required intent tags."
+    },
+    {
+      "query_id": "q10",
+      "query": "stackable kitchen storage",
+      "keyword_top5": [
+        {
+          "id": 283,
+          "relevant": true
+        },
+        {
+          "id": 243,
+          "relevant": false
+        },
+        {
+          "id": 298,
+          "relevant": true
+        },
+        {
+          "id": 235,
+          "relevant": false
+        },
+        {
+          "id": 249,
+          "relevant": false
+        }
+      ],
+      "hybrid_top5": [
+        {
+          "id": 235,
+          "relevant": false
+        },
+        {
+          "id": 250,
+          "relevant": false
+        },
+        {
+          "id": 255,
+          "relevant": false
+        },
+        {
+          "id": 283,
+          "relevant": true
+        },
+        {
+          "id": 226,
+          "relevant": false
+        }
+      ],
+      "diagnosis": "Hybrid promoted semantic neighbours that lacked enough of the query's required intent tags."
+    },
+    {
+      "query_id": "q12",
+      "query": "healthy cooking helpers",
+      "keyword_top5": [
+        {
+          "id": 235,
+          "relevant": true
+        },
+        {
+          "id": 295,
+          "relevant": true
+        },
+        {
+          "id": 250,
+          "relevant": true
+        },
+        {
+          "id": 255,
+          "relevant": false
+        },
+        {
+          "id": 280,
+          "relevant": true
+        }
+      ],
+      "hybrid_top5": [
+        {
+          "id": 295,
+          "relevant": true
+        },
+        {
+          "id": 235,
+          "relevant": true
+        },
+        {
+          "id": 285,
+          "relevant": false
+        },
+        {
+          "id": 280,
+          "relevant": true
+        },
+        {
+          "id": 255,
+          "relevant": false
+        }
+      ],
+      "diagnosis": "Hybrid promoted semantic neighbours that lacked enough of the query's required intent tags."
+    },
+    {
+      "query_id": "q25",
+      "query": "cosy home thows",
+      "keyword_top5": [
+        {
+          "id": 61,
+          "relevant": true
+        },
+        {
+          "id": 16,
+          "relevant": true
+        },
+        {
+          "id": 21,
+          "relevant": true
+        },
+        {
+          "id": 46,
+          "relevant": true
+        },
+        {
+          "id": 1,
+          "relevant": true
+        }
+      ],
+      "hybrid_top5": [
+        {
+          "id": 5,
+          "relevant": false
+        },
+        {
+          "id": 55,
+          "relevant": true
+        },
+        {
+          "id": 65,
+          "relevant": false
+        },
+        {
+          "id": 45,
+          "relevant": false
+        },
+        {
+          "id": 35,
+          "relevant": false
+        }
+      ],
+      "diagnosis": "Hybrid promoted semantic neighbours that lacked enough of the query's required intent tags."
+    },
+    {
+      "query_id": "q26",
+      "query": "something sturdy",
+      "keyword_top5": [
+        {
+          "id": 271,
+          "relevant": true
+        },
+        {
+          "id": 226,
+          "relevant": true
+        },
+        {
+          "id": 231,
+          "relevant": true
+        },
+        {
+          "id": 241,
+          "relevant": true
+        },
+        {
+          "id": 256,
+          "relevant": true
+        }
+      ],
+      "hybrid_top5": [
+        {
+          "id": 271,
+          "relevant": true
+        },
+        {
+          "id": 251,
+          "relevant": true
+        },
+        {
+          "id": 241,
+          "relevant": true
+        },
+        {
+          "id": 295,
+          "relevant": false
+        },
+        {
+          "id": 235,
+          "relevant": false
+        }
+      ],
+      "diagnosis": "Hybrid promoted semantic neighbours that lacked enough of the query's required intent tags."
+    }
+  ],
+  "hybrid_lowest_three": [
+    {
+      "query_id": "q07",
+      "query": "soft plush gift ideas",
+      "precision_at_5": 0.0
+    },
+    {
+      "query_id": "q13",
+      "query": "portable charging gear",
+      "precision_at_5": 0.0
+    },
+    {
+      "query_id": "q14",
+      "query": "durable desk setup",
+      "precision_at_5": 0.0
+    }
+  ],
+  "semantic_cosine_distribution": {
+    "answerable": {
+      "min": 0.5861894488334656,
+      "median": 0.6840716898441315,
+      "max": 0.7738088369369507
+    },
+    "off_catalogue": {
+      "q29": 0.5514938235282898,
+      "q30": 0.6593454480171204
     }
   },
-  "timestamp": "2026-11-17T07:19:04.606045+00:00"
+  "timestamp": "2026-11-17T07:26:35.366215+00:00"
 }

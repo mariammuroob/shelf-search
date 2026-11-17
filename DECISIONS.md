@@ -51,6 +51,15 @@
 - Commands to run: `python build_data.py`; `python -m pytest tests --confcutdir=.`; `python eval.py`; `uvicorn api:app --host 0.0.0.0 --port 8000`.
 - Freeze: the keyword search, parser, stopwords, and tokenizer are now frozen while hybrid work continues.
 
+## Phase 4: three-method evaluation and confidence review
+
+- Decision: add semantic-only metrics, hybrid-vs-keyword error analysis, and top-cosine distributions to the evaluation report without changing retrieval code or tuning any values.
+- Alternatives considered: tune hybrid parameters, regroup q09, or ship a low-confidence flag based on the cosine scores.
+- Reason: hybrid is lower overall and on shared-word queries; q09 is effectively a paraphrase despite its assigned group; q29/q30 are not separated by cosine because q30 falls inside the answerable range, so no low-confidence flag is planned for the API or UI.
+- Files changed: eval.py, README.md, results.json, DECISIONS.md.
+- Commands to run: `python -m pytest tests --confcutdir=.`; `python eval.py`.
+- Freeze: do not change search.py, the keyword arm, semantic arm, fusion, k, candidate size, stopwords, labels, or queries.
+
 ## Phase 1 fix 2: title variants and label limitation
 
 - Decision: add colour, size, material, and pack-count variants to generated titles while keeping tags, judgements, and query wording unchanged.
