@@ -16,6 +16,11 @@
         "precision@5": 0.15000000000000005,
         "no-results rate": 0.0,
         "n": 28
+      },
+      "hybrid_weighted": {
+        "precision@5": 0.3714285714285714,
+        "no-results rate": 0.0,
+        "n": 28
       }
     },
     "shared_word": {
@@ -33,6 +38,11 @@
         "precision@5": 0.12380952380952381,
         "no-results rate": 0.0,
         "n": 21
+      },
+      "hybrid_weighted": {
+        "precision@5": 0.41904761904761906,
+        "no-results rate": 0.0,
+        "n": 21
       }
     },
     "no_word_overlap": {
@@ -47,6 +57,11 @@
         "n": 7
       },
       "semantic-only": {
+        "precision@5": 0.22857142857142856,
+        "no-results rate": 0.0,
+        "n": 7
+      },
+      "hybrid_weighted": {
         "precision@5": 0.22857142857142856,
         "no-results rate": 0.0,
         "n": 7
@@ -2201,6 +2216,690 @@
         }
       ],
       "timestamp": "2026-11-17T07:26:35.057592+00:00"
+    },
+    "hybrid_weighted": {
+      "method": "hybrid_weighted",
+      "weight": 0.25,
+      "groups": {
+        "all_answerable": {
+          "precision@5": 0.3714285714285714,
+          "no-results rate": 0.0,
+          "n": 28
+        },
+        "shared_word": {
+          "precision@5": 0.41904761904761906,
+          "no-results rate": 0.0,
+          "n": 21
+        },
+        "no_word_overlap": {
+          "precision@5": 0.22857142857142856,
+          "no-results rate": 0.0,
+          "n": 7
+        }
+      },
+      "per-query detail": [
+        {
+          "query_id": "q01",
+          "query": "soften the sofa with a snug layer",
+          "kind": "normal",
+          "group": "no_word_overlap",
+          "top5_ids": [
+            67,
+            7,
+            35,
+            70,
+            20
+          ],
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          "precision_at_5": 0.2,
+          "no_results": false
+        },
+        {
+          "query_id": "q02",
+          "query": "sturdy organisers under $30",
+          "kind": "normal",
+          "group": "shared_word",
+          "top5_ids": [
+            17,
+            7,
+            47,
+            72,
+            32
+          ],
+          "top5_relevant": [
+            false,
+            true,
+            false,
+            false,
+            false
+          ],
+          "precision_at_5": 0.2,
+          "no_results": false
+        },
+        {
+          "query_id": "q03",
+          "query": "make a youngster's corner cheerful",
+          "kind": "normal",
+          "group": "no_word_overlap",
+          "top5_ids": [
+            181,
+            206,
+            166,
+            217,
+            161
+          ],
+          "top5_relevant": [
+            true,
+            true,
+            true,
+            false,
+            true
+          ],
+          "precision_at_5": 0.8,
+          "no_results": false
+        },
+        {
+          "query_id": "q04",
+          "query": "compact travel clothes",
+          "kind": "normal",
+          "group": "shared_word",
+          "top5_ids": [
+            97,
+            87,
+            77,
+            127,
+            117
+          ],
+          "top5_relevant": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "precision_at_5": 1.0,
+          "no_results": false
+        },
+        {
+          "query_id": "q05",
+          "query": "warm winter layers",
+          "kind": "normal",
+          "group": "shared_word",
+          "top5_ids": [
+            106,
+            81,
+            141,
+            86,
+            111
+          ],
+          "top5_relevant": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "precision_at_5": 1.0,
+          "no_results": false
+        },
+        {
+          "query_id": "q06",
+          "query": "breathable gym clothing",
+          "kind": "normal",
+          "group": "shared_word",
+          "top5_ids": [
+            133,
+            93,
+            103,
+            123,
+            118
+          ],
+          "top5_relevant": [
+            true,
+            false,
+            true,
+            false,
+            true
+          ],
+          "precision_at_5": 0.6,
+          "no_results": false
+        },
+        {
+          "query_id": "q07",
+          "query": "soft plush gift ideas",
+          "kind": "normal",
+          "group": "shared_word",
+          "top5_ids": [
+            152,
+            182,
+            212,
+            187,
+            157
+          ],
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "precision_at_5": 0.0,
+          "no_results": false
+        },
+        {
+          "query_id": "q08",
+          "query": "durable toys for kids",
+          "kind": "normal",
+          "group": "shared_word",
+          "top5_ids": [
+            157,
+            187,
+            167,
+            217,
+            172
+          ],
+          "top5_relevant": [
+            true,
+            true,
+            false,
+            true,
+            true
+          ],
+          "precision_at_5": 0.8,
+          "no_results": false
+        },
+        {
+          "query_id": "q09",
+          "query": "keep a little one occupied on a trip",
+          "kind": "normal",
+          "group": "shared_word",
+          "top5_ids": [
+            158,
+            218,
+            155,
+            203,
+            185
+          ],
+          "top5_relevant": [
+            true,
+            true,
+            false,
+            true,
+            false
+          ],
+          "precision_at_5": 0.6,
+          "no_results": false
+        },
+        {
+          "query_id": "q10",
+          "query": "stackable kitchen storage",
+          "kind": "normal",
+          "group": "shared_word",
+          "top5_ids": [
+            235,
+            283,
+            243,
+            298,
+            226
+          ],
+          "top5_relevant": [
+            false,
+            true,
+            false,
+            true,
+            false
+          ],
+          "precision_at_5": 0.4,
+          "no_results": false
+        },
+        {
+          "query_id": "q11",
+          "query": "cute ceramic gifts",
+          "kind": "normal",
+          "group": "shared_word",
+          "top5_ids": [
+            232,
+            252,
+            262,
+            282,
+            242
+          ],
+          "top5_relevant": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "precision_at_5": 1.0,
+          "no_results": false
+        },
+        {
+          "query_id": "q12",
+          "query": "healthy cooking helpers",
+          "kind": "normal",
+          "group": "shared_word",
+          "top5_ids": [
+            295,
+            235,
+            255,
+            280,
+            250
+          ],
+          "top5_relevant": [
+            true,
+            true,
+            false,
+            true,
+            true
+          ],
+          "precision_at_5": 0.8,
+          "no_results": false
+        },
+        {
+          "query_id": "q13",
+          "query": "portable charging gear",
+          "kind": "normal",
+          "group": "shared_word",
+          "top5_ids": [
+            322,
+            357,
+            367,
+            372,
+            319
+          ],
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "precision_at_5": 0.0,
+          "no_results": false
+        },
+        {
+          "query_id": "q14",
+          "query": "durable desk setup",
+          "kind": "normal",
+          "group": "no_word_overlap",
+          "top5_ids": [
+            346,
+            306,
+            316,
+            366,
+            301
+          ],
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "precision_at_5": 0.0,
+          "no_results": false
+        },
+        {
+          "query_id": "q15",
+          "query": "small wireless gifts",
+          "kind": "normal",
+          "group": "shared_word",
+          "top5_ids": [
+            313,
+            328,
+            363,
+            320,
+            359
+          ],
+          "top5_relevant": [
+            true,
+            true,
+            false,
+            false,
+            false
+          ],
+          "precision_at_5": 0.4,
+          "no_results": false
+        },
+        {
+          "query_id": "q16",
+          "query": "a pampering ritual away from home",
+          "kind": "normal",
+          "group": "no_word_overlap",
+          "top5_ids": [
+            422,
+            446,
+            379,
+            384,
+            417
+          ],
+          "top5_relevant": [
+            true,
+            false,
+            false,
+            false,
+            true
+          ],
+          "precision_at_5": 0.4,
+          "no_results": false
+        },
+        {
+          "query_id": "q17",
+          "query": "calming self care gifts",
+          "kind": "normal",
+          "group": "shared_word",
+          "top5_ids": [
+            378,
+            423,
+            443,
+            394,
+            379
+          ],
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "precision_at_5": 0.0,
+          "no_results": false
+        },
+        {
+          "query_id": "q18",
+          "query": "daily beauty under $20",
+          "kind": "normal",
+          "group": "shared_word",
+          "top5_ids": [
+            438,
+            391,
+            441,
+            395,
+            431
+          ],
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "precision_at_5": 0.0,
+          "no_results": false
+        },
+        {
+          "query_id": "q19",
+          "query": "something nourishing to start the day",
+          "kind": "normal",
+          "group": "no_word_overlap",
+          "top5_ids": [
+            452,
+            464,
+            524,
+            494,
+            512
+          ],
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "precision_at_5": 0.0,
+          "no_results": false
+        },
+        {
+          "query_id": "q20",
+          "query": "small travel food box",
+          "kind": "normal",
+          "group": "shared_word",
+          "top5_ids": [
+            514,
+            499,
+            504,
+            524,
+            474
+          ],
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "precision_at_5": 0.0,
+          "no_results": false
+        },
+        {
+          "query_id": "q21",
+          "query": "wholesome gifts",
+          "kind": "normal",
+          "group": "shared_word",
+          "top5_ids": [
+            487,
+            456,
+            500,
+            481,
+            498
+          ],
+          "top5_relevant": [
+            true,
+            false,
+            false,
+            false,
+            false
+          ],
+          "precision_at_5": 0.2,
+          "no_results": false
+        },
+        {
+          "query_id": "q22",
+          "query": "grippy gym equipment",
+          "kind": "normal",
+          "group": "shared_word",
+          "top5_ids": [
+            553,
+            558,
+            583,
+            578,
+            566
+          ],
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            true
+          ],
+          "precision_at_5": 0.2,
+          "no_results": false
+        },
+        {
+          "query_id": "q23",
+          "query": "weather ready winter gear",
+          "kind": "normal",
+          "group": "shared_word",
+          "top5_ids": [
+            569,
+            599,
+            580,
+            556,
+            568
+          ],
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "precision_at_5": 0.0,
+          "no_results": false
+        },
+        {
+          "query_id": "q24",
+          "query": "lightweight active travel kit",
+          "kind": "normal",
+          "group": "shared_word",
+          "top5_ids": [
+            546,
+            581,
+            561,
+            551,
+            531
+          ],
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "precision_at_5": 0.0,
+          "no_results": false
+        },
+        {
+          "query_id": "q25",
+          "query": "cosy home thows",
+          "kind": "awkward",
+          "group": "shared_word",
+          "top5_ids": [
+            61,
+            25,
+            55,
+            5,
+            45
+          ],
+          "top5_relevant": [
+            true,
+            true,
+            true,
+            false,
+            false
+          ],
+          "precision_at_5": 0.6,
+          "no_results": false
+        },
+        {
+          "query_id": "q26",
+          "query": "something sturdy",
+          "kind": "awkward",
+          "group": "shared_word",
+          "top5_ids": [
+            271,
+            241,
+            226,
+            231,
+            256
+          ],
+          "top5_relevant": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "precision_at_5": 1.0,
+          "no_results": false
+        },
+        {
+          "query_id": "q27",
+          "query": "GIFT IDEAS",
+          "kind": "awkward",
+          "group": "no_word_overlap",
+          "top5_ids": [
+            199,
+            205,
+            181,
+            160,
+            169
+          ],
+          "top5_relevant": [
+            false,
+            false,
+            true,
+            false,
+            false
+          ],
+          "precision_at_5": 0.2,
+          "no_results": false
+        },
+        {
+          "query_id": "q28",
+          "query": "warm",
+          "kind": "awkward",
+          "group": "no_word_overlap",
+          "top5_ids": [
+            85,
+            130,
+            145,
+            125,
+            115
+          ],
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "precision_at_5": 0.0,
+          "no_results": false
+        },
+        {
+          "query_id": "q29",
+          "query": "printer ink cartridges",
+          "kind": "off_catalogue",
+          "group": null,
+          "top5_ids": [
+            340,
+            348,
+            343,
+            364,
+            358
+          ],
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "precision_at_5": 0.0,
+          "no_results": false
+        },
+        {
+          "query_id": "q30",
+          "query": "camping tents",
+          "kind": "off_catalogue",
+          "group": null,
+          "top5_ids": [
+            540,
+            550,
+            600,
+            560,
+            580
+          ],
+          "top5_relevant": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "precision_at_5": 0.0,
+          "no_results": false
+        }
+      ],
+      "timestamp": "2026-11-17T07:34:51.719636+00:00"
     }
   },
   "hybrid_error_analysis": [
@@ -2625,5 +3324,21 @@
       "q30": 0.6593454480171204
     }
   },
-  "timestamp": "2026-11-17T07:26:35.366215+00:00"
+  "timestamp": "2026-11-17T07:34:51.721135+00:00",
+  "dev_selection": {
+    "grid": {
+      "0.25": 0.30833333333333335,
+      "0.5": 0.275,
+      "0.75": 0.25,
+      "1.0": 0.25833333333333336
+    },
+    "selected_weight": 0.25,
+    "n": 24,
+    "paraphrase_n": 6,
+    "timestamp": "2026-11-17T07:33:58.181861+00:00"
+  },
+  "embedding_backend": [
+    "fastembed",
+    "BAAI/bge-small-en-v1.5"
+  ]
 }

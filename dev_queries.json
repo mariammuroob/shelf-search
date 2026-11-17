@@ -1,0 +1,473 @@
+[
+  {
+    "query_id": "d01",
+    "query": "a peaceful nook after a long shift",
+    "category": "home",
+    "required_tags": [
+      "relax",
+      "soft"
+    ],
+    "relevant_ids": [
+      10,
+      25,
+      40,
+      55,
+      70
+    ],
+    "group": "no_word_overlap"
+  },
+  {
+    "query_id": "d02",
+    "query": "durable baskets for a crowded corner",
+    "category": "home",
+    "required_tags": [
+      "organised",
+      "durable"
+    ],
+    "relevant_ids": [
+      7,
+      22,
+      37,
+      52,
+      67
+    ],
+    "group": "shared_word"
+  },
+  {
+    "query_id": "d03",
+    "query": "faux fur accent for lounging",
+    "category": "home",
+    "required_tags": [
+      "relax",
+      "cosy"
+    ],
+    "relevant_ids": [
+      5,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75
+    ],
+    "group": "shared_word"
+  },
+  {
+    "query_id": "d04",
+    "query": "something for chilly school mornings",
+    "category": "apparel",
+    "required_tags": [
+      "winter",
+      "cosy"
+    ],
+    "relevant_ids": [
+      76,
+      91,
+      106,
+      121,
+      136
+    ],
+    "group": "no_word_overlap"
+  },
+  {
+    "query_id": "d05",
+    "query": "outdoor layering for commutes",
+    "category": "apparel",
+    "required_tags": [
+      "outdoor",
+      "durable"
+    ],
+    "relevant_ids": [
+      85,
+      100,
+      115,
+      130,
+      145
+    ],
+    "group": "shared_word"
+  },
+  {
+    "query_id": "d06",
+    "query": "active breathable joggers",
+    "category": "apparel",
+    "required_tags": [
+      "active",
+      "breathable"
+    ],
+    "relevant_ids": [
+      88,
+      103,
+      118,
+      133,
+      148
+    ],
+    "group": "shared_word"
+  },
+  {
+    "query_id": "d07",
+    "query": "a surprise for a young builder",
+    "category": "toys",
+    "required_tags": [
+      "kidsroom",
+      "sturdy"
+    ],
+    "relevant_ids": [
+      157,
+      172,
+      187,
+      202,
+      217
+    ],
+    "group": "no_word_overlap"
+  },
+  {
+    "query_id": "d08",
+    "query": "creative play for trips",
+    "category": "toys",
+    "required_tags": [
+      "compact",
+      "kidsroom"
+    ],
+    "relevant_ids": [
+      163,
+      178,
+      193,
+      208,
+      223
+    ],
+    "group": "shared_word"
+  },
+  {
+    "query_id": "d09",
+    "query": "soft animal for bedtime",
+    "category": "toys",
+    "required_tags": [
+      "cosy",
+      "gift"
+    ],
+    "relevant_ids": [
+      154,
+      169,
+      184,
+      199,
+      214
+    ],
+    "group": "shared_word"
+  },
+  {
+    "query_id": "d10",
+    "query": "cute kitchen present for a new flat",
+    "category": "kitchen",
+    "required_tags": [
+      "gift",
+      "compact"
+    ],
+    "relevant_ids": [
+      232,
+      247,
+      262,
+      277,
+      292
+    ],
+    "group": "shared_word"
+  },
+  {
+    "query_id": "d11",
+    "query": "sturdy cooking for weekday routines",
+    "category": "kitchen",
+    "required_tags": [
+      "healthy",
+      "active"
+    ],
+    "relevant_ids": [
+      230,
+      235,
+      240,
+      245,
+      250,
+      255,
+      260,
+      265,
+      270,
+      275,
+      280,
+      285,
+      290,
+      295,
+      300
+    ],
+    "group": "no_word_overlap"
+  },
+  {
+    "query_id": "d12",
+    "query": "warm mug for quiet evenings",
+    "category": "kitchen",
+    "required_tags": [
+      "warm",
+      "cosy"
+    ],
+    "relevant_ids": [
+      229,
+      234,
+      239,
+      244,
+      249,
+      254,
+      259,
+      264,
+      269,
+      274,
+      279,
+      284,
+      289,
+      294,
+      299
+    ],
+    "group": "shared_word"
+  },
+  {
+    "query_id": "d13",
+    "query": "keep devices ready during a getaway",
+    "category": "electronics",
+    "required_tags": [
+      "travel",
+      "durable"
+    ],
+    "relevant_ids": [
+      301,
+      316,
+      331,
+      346,
+      361
+    ],
+    "group": "no_word_overlap"
+  },
+  {
+    "query_id": "d14",
+    "query": "organised desk stand",
+    "category": "electronics",
+    "required_tags": [
+      "organised",
+      "sturdy",
+      "durable"
+    ],
+    "relevant_ids": [
+      304,
+      319,
+      334,
+      349,
+      364
+    ],
+    "group": "shared_word"
+  },
+  {
+    "query_id": "d15",
+    "query": "active gym audio",
+    "category": "electronics",
+    "required_tags": [
+      "gym",
+      "sturdy"
+    ],
+    "relevant_ids": [
+      307,
+      322,
+      337,
+      352,
+      367
+    ],
+    "group": "shared_word"
+  },
+  {
+    "query_id": "d16",
+    "query": "a little treat after a tiring day",
+    "category": "beauty",
+    "required_tags": [
+      "relax",
+      "healthy"
+    ],
+    "relevant_ids": [
+      385,
+      400,
+      415,
+      430,
+      445
+    ],
+    "group": "no_word_overlap"
+  },
+  {
+    "query_id": "d17",
+    "query": "gentle bath for cosy evenings",
+    "category": "beauty",
+    "required_tags": [
+      "soft",
+      "cosy"
+    ],
+    "relevant_ids": [
+      376,
+      381,
+      386,
+      391,
+      396,
+      401,
+      406,
+      411,
+      416,
+      421,
+      426,
+      431,
+      436,
+      441,
+      446
+    ],
+    "group": "shared_word"
+  },
+  {
+    "query_id": "d18",
+    "query": "compact beauty organiser",
+    "category": "beauty",
+    "required_tags": [
+      "compact",
+      "organised"
+    ],
+    "relevant_ids": [
+      382,
+      397,
+      412,
+      427,
+      442
+    ],
+    "group": "shared_word"
+  },
+  {
+    "query_id": "d19",
+    "query": "rich tea for winter evenings",
+    "category": "grocery",
+    "required_tags": [
+      "warm",
+      "healthy",
+      "cosy"
+    ],
+    "relevant_ids": [
+      451,
+      466,
+      481,
+      496,
+      511
+    ],
+    "group": "shared_word"
+  },
+  {
+    "query_id": "d20",
+    "query": "healthy snack for active days",
+    "category": "grocery",
+    "required_tags": [
+      "gym",
+      "active"
+    ],
+    "relevant_ids": [
+      454,
+      459,
+      464,
+      469,
+      474,
+      479,
+      484,
+      489,
+      494,
+      499,
+      504,
+      509,
+      514,
+      519,
+      524
+    ],
+    "group": "shared_word"
+  },
+  {
+    "query_id": "d21",
+    "query": "compact food for travel",
+    "category": "grocery",
+    "required_tags": [
+      "travel",
+      "healthy"
+    ],
+    "relevant_ids": [
+      463,
+      478,
+      493,
+      508,
+      523
+    ],
+    "group": "shared_word"
+  },
+  {
+    "query_id": "d22",
+    "query": "durable outdoor training gear",
+    "category": "sports",
+    "required_tags": [
+      "outdoor",
+      "sturdy"
+    ],
+    "relevant_ids": [
+      527,
+      532,
+      537,
+      542,
+      547,
+      552,
+      557,
+      562,
+      567,
+      572,
+      577,
+      582,
+      587,
+      592,
+      597
+    ],
+    "group": "shared_word"
+  },
+  {
+    "query_id": "d23",
+    "query": "warm equipment for winter walks",
+    "category": "sports",
+    "required_tags": [
+      "winter",
+      "warm",
+      "outdoor"
+    ],
+    "relevant_ids": [
+      529,
+      544,
+      559,
+      574,
+      589
+    ],
+    "group": "shared_word"
+  },
+  {
+    "query_id": "d24",
+    "query": "compact kit for active trips",
+    "category": "sports",
+    "required_tags": [
+      "compact",
+      "active"
+    ],
+    "relevant_ids": [
+      538,
+      553,
+      568,
+      583,
+      598
+    ],
+    "group": "shared_word"
+  }
+]

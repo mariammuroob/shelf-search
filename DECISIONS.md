@@ -60,6 +60,15 @@
 - Commands to run: `python -m pytest tests --confcutdir=.`; `python eval.py`.
 - Freeze: do not change search.py, the keyword arm, semantic arm, fusion, k, candidate size, stopwords, labels, or queries.
 
+## Phase 4b: dev-selected weighted fusion
+
+- Decision: create 24 separate dev queries with tag-rule labels (6 paraphrases), select `w=0.25` on dev precision@5, and commit that weight for the future API and UI while showing equal and weighted hybrid numbers.
+- Alternatives considered: weights 0.5, 0.75, 1.0; dev precision@5 was respectively 0.275, 0.250, 0.258 versus 0.308 at 0.25. The best exceeded 1.0 by 0.050, above the precommitted 0.02 margin.
+- Reason: choose the weight before held-out test evaluation and preserve all frozen retrieval arms. The dev set derives from the same generator and tag rules, so it is not independent evidence.
+- Held-out test: weighted precision@5 0.371 overall, 0.419 shared-word, 0.229 paraphrase; no-results rate 0 in each. The first held-out invocation failed on an off-catalogue group reporting lookup before writing metrics; the same locked weight was rerun after fixing only that lookup.
+- Files changed: dev_gen.py, dev_queries.json, phase4b.py, dev_selection.json, results.json, README.md, DECISIONS.md.
+- Commands to run: `python dev_gen.py`; `python phase4b.py dev`; `python phase4b.py test` (test is guarded against rerun); `python -m pytest tests --confcutdir=.`; `uvicorn api:app --host 127.0.0.1 --port 8000`.
+
 ## Phase 1 fix 2: title variants and label limitation
 
 - Decision: add colour, size, material, and pack-count variants to generated titles while keeping tags, judgements, and query wording unchanged.

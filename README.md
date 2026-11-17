@@ -25,13 +25,13 @@ The catalogue, queries, hidden intent tags, and relevance labels are synthetic a
 
 # Results
 
-Evaluation timestamp: 2026-11-17. Embedding backend: fastembed 0.9.1, `BAAI/bge-small-en-v1.5`.
+Evaluation timestamp: 2026-11-17. Embedding backend: fastembed 0.9.1, `BAAI/bge-small-en-v1.5`. The weighted fusion coefficient was chosen using 24 separate dev queries: `w=0.25` (dev precision@5: 0.308; the grid was 0.25: 0.308, 0.5: 0.275, 0.75: 0.250, 1.0: 0.258). The frozen 30-query test set was used once for the selected weight; an initial reporting run failed before publishing metrics and was rerun with the same weight.
 
-| Group | n | Keyword precision@5 | Semantic precision@5 | Hybrid precision@5 | Keyword no-results | Semantic no-results | Hybrid no-results |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| All answerable | 28 | 0.314 | 0.150 | 0.293 | 0.214 | 0.000 | 0.000 |
-| Shared-word | 21 | 0.419 | 0.124 | 0.314 | 0.048 | 0.000 | 0.000 |
-| Paraphrase | 7 | 0.000 | 0.229 | 0.229 | 0.714 | 0.000 | 0.000 |
+| Group | n | Keyword P@5 / no-results | Semantic P@5 / no-results | Equal hybrid P@5 / no-results | Weighted hybrid P@5 / no-results |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| All answerable | 28 | 0.314 / 0.214 | 0.150 / 0.000 | 0.293 / 0.000 | 0.371 / 0.000 |
+| Shared-word | 21 | 0.419 / 0.048 | 0.124 / 0.000 | 0.314 / 0.000 | 0.419 / 0.000 |
+| Paraphrase | 7 | 0.000 / 0.714 | 0.229 / 0.000 | 0.229 / 0.000 | 0.229 / 0.000 |
 
 Hybrid did not beat keyword-only on overall precision@5 (0.293 vs 0.314) and was worse on shared-word queries (0.314 vs 0.419). It was better on paraphrase queries (0.229 vs 0.000) and returned results for every query, which is partly by construction because semantic search always returns neighbours.
 
@@ -39,13 +39,15 @@ The catalogue, queries, and labels are synthetic and generated from the same int
 
 ## What I would try next
 
-Weighted fusion or query routing, tuned on a separate held-out development query set, never on these 30 queries.
+The precommitted API and UI choice is the dev-selected weight `0.25` regardless of its test score, with both hybrid results shown. Further query routing would require another separate development set.
 
 # Limits
 
 Every query's relevant count is a multiple of five because each category has 75 products built from five repeating tag-template groups, each contributing 15 products. Yes, the pattern comes from tags being assigned per template group, so a query selects whole groups (or overlaps between groups) rather than independently varied labels. This is a limitation: labels derive from the generator tags, so the evaluation partly measures my own generator.
 
 Seven of the 28 answerable queries are paraphrases by design.
+
+The dev set also comes from the same generator and tag rules, so it is not independent evidence.
 
 Grouping caveat: q09 returns zero keyword results on its real terms (`little OR occupied OR trip`) and is effectively a paraphrase query, although it remains in the shared-word group for the headline numbers.
 
