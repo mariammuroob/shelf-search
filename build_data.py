@@ -1,5 +1,12 @@
+import subprocess
+import sys
+from pathlib import Path
+
+
 def main() -> None:
-    # Keep deployment setup a stub until the synthetic catalogue phase begins.
+    # Run the generator as a checked subprocess so deployment never silently uses stale data.
+    data_gen = Path(__file__).parent / "data_gen.py"
+    subprocess.run([sys.executable, str(data_gen)], check=True)
     print("build ok")
 
 

@@ -16,6 +16,31 @@
 - Files changed: data_gen.py, test_queries.json, products.db, DECISIONS.md.
 - Commands to run: `python data_gen.py`; `python -m pytest tests --confcutdir=.`; `uvicorn api:app --host 0.0.0.0 --port 8000`.
 
+## Phase 2: keyword baseline and evaluation harness
+
+- Decision: use a bound-parameter FTS5 OR query with optional bound filters, and make evaluation accept the search function as an argument.
+- Alternatives considered: concatenate MATCH/filter input, use plain AND, or hard-code evaluation to one search implementation.
+- Reason: OR preserves a fair natural-language keyword baseline, parameter binding protects the database, and an injectable function supports later hybrid comparison.
+- Files changed: search.py, eval.py, build_data.py, tests/test_keyword.py, results.json, DECISIONS.md.
+- Commands to run: `python build_data.py`; `python -m pytest tests --confcutdir=.`; `python eval.py`; `uvicorn api:app --host 0.0.0.0 --port 8000`.
+
+## Fairness check: possessive-token fix
+
+- Decision: add the possessive suffix `s` to the keyword stopwords so text such as `youngster's` cannot send a stray one-letter FTS term.
+- Alternatives considered: leave the token as-is or rewrite query text before parsing.
+- Reason: the fairness report exposed this as a real sanitisation bug; price words and planned category/stock filters were already correct.
+- Files changed: search.py, tests/test_keyword.py, DECISIONS.md.
+- Commands to run: `python -m pytest tests --confcutdir=.`; `python eval.py`.
+
+## Phase 2 fairness fix: freeze keyword arm
+
+- Decision: recreate FTS5 with `porter unicode61`, add only generic filler stopwords, and report all/shared-word/paraphrase groups before freezing the keyword arm.
+- Alternatives considered: tune stopwords or tokenizer behavior per query, or leave the baseline unchanged before hybrid work.
+- Reason: stemming improves ordinary variants such as gift/gifts and throw/throws; strengthening the baseline before any hybrid result exists prevents accusations that the hybrid was favored.
+- Files changed: data_gen.py, search.py, eval.py, results.json, README.md, DECISIONS.md, products.db.
+- Commands to run: `python build_data.py`; `python -m pytest tests --confcutdir=.`; `python eval.py`; `uvicorn api:app --host 0.0.0.0 --port 8000`.
+- Freeze: no further changes to the keyword search, parser, stopwords, or tokenizer while hybrid search is built.
+
 ## Phase 1 fix 2: title variants and label limitation
 
 - Decision: add colour, size, material, and pack-count variants to generated titles while keeping tags, judgements, and query wording unchanged.

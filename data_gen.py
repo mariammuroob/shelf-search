@@ -65,7 +65,8 @@ def create_schema(connection: sqlite3.Connection) -> None:
         );
         CREATE VIRTUAL TABLE product_fts USING fts5(
             title, description, brand, category,
-            content='products', content_rowid='id'
+            content='products', content_rowid='id',
+            tokenize='porter unicode61'
         );
         CREATE TABLE product_embeddings (
             product_id INTEGER PRIMARY KEY,
