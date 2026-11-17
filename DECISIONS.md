@@ -41,6 +41,16 @@
 - Commands to run: `python build_data.py`; `python -m pytest tests --confcutdir=.`; `python eval.py`; `uvicorn api:app --host 0.0.0.0 --port 8000`.
 - Freeze: no further changes to the keyword search, parser, stopwords, or tokenizer while hybrid search is built.
 
+## Phase 3: embeddings and hybrid search
+
+- Decision: use verified fastembed 0.9.1 `TextEmbedding(model_name="BAAI/bge-small-en-v1.5", cache_dir="./models")`, with persisted float32 vectors and a TF-IDF fallback; fuse 200-result keyword and semantic lists with deterministic RRF k=60 before bound SQL filters.
+- Alternatives considered: require the model with no fallback, filter each arm before fusion, or apply hybrid changes to the frozen keyword arm.
+- Reason: the local fallback keeps builds usable, wide-list fusion avoids filter starvation, and preserving the keyword arm keeps the comparison fair.
+- Low-confidence reporting uses a fixed top-cosine threshold of 0.35 for off-catalogue queries.
+- Files changed: embed.py, search.py, eval.py, build_data.py, tests/test_hybrid.py, results.json, DECISIONS.md, products.db, models/.
+- Commands to run: `python build_data.py`; `python -m pytest tests --confcutdir=.`; `python eval.py`; `uvicorn api:app --host 0.0.0.0 --port 8000`.
+- Freeze: the keyword search, parser, stopwords, and tokenizer are now frozen while hybrid work continues.
+
 ## Phase 1 fix 2: title variants and label limitation
 
 - Decision: add colour, size, material, and pack-count variants to generated titles while keeping tags, judgements, and query wording unchanged.
