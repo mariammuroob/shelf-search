@@ -3,9 +3,67 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>shelf-search</title>
+    <title>shelf-search synthetic demo</title>
+    <style>
+      body { font: 16px system-ui, sans-serif; max-width: 1100px; margin: 2rem auto; padding: 0 1rem; color: #172532; background: #f7f8f7; }
+      .banner { padding: 1rem; background: #e5f2ee; border: 1px solid #8abca9; }
+      form { display: flex; flex-wrap: wrap; gap: .7rem; margin: 1.5rem 0; align-items: end; }
+      label { display: grid; gap: .3rem; } input, select, button { font: inherit; padding: .55rem; }
+      #q { min-width: 18rem; } button { background: #124d42; color: white; border: 0; cursor: pointer; }
+      .columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+      article { background: white; border: 1px solid #d6dfdc; padding: .85rem; margin-bottom: .7rem; }
+      article h3 { margin: 0 0 .3rem; } small { display: block; color: #425b62; margin-top: .4rem; }
+      @media (max-width: 700px) { .columns { grid-template-columns: 1fr; } }
+    </style>
   </head>
   <body>
-    <p>shelf-search: synthetic demo, not Target data</p>
+    <h1>shelf-search</h1>
+    <p class="banner">Synthetic catalogue, not Target data</p>
+    <form id="form">
+      <label>Search <input id="q" name="q" maxlength="200" required placeholder="Try cosy throws" /></label>
+      <label>Maximum price <input id="price" name="max_price" type="number" min="0.01" step="0.01" /></label>
+      <label>Category <select id="category" name="category"><option value="">All categories</option><option>home</option><option>apparel</option><option>toys</option><option>kitchen</option><option>electronics</option><option>beauty</option><option>grocery</option><option>sports</option></select></label>
+      <label><input id="stock" type="checkbox" /> In stock only</label>
+      <button>Search</button>
+    </form>
+    <p id="status" role="status"></p>
+    <div class="columns"><section><h2>Keyword only</h2><div id="keyword"></div></section><section><h2>Weighted hybrid</h2><div id="hybrid"></div></section></div>
+    <section><h2>Suggestions</h2><div id="suggestions"></div></section>
+    <p>This demo cannot tell when nothing relevant exists: semantic search always returns its nearest neighbours.</p>
+    <script>
+      const form = document.querySelector('#form');
+      const status = document.querySelector('#status');
+      function card(item, target) {
+        const box = document.createElement('article');
+        const title = document.createElement('h3'); title.textContent = item.title; box.append(title);
+        const detail = document.createElement('span'); detail.textContent = `${item.brand} · ${item.category} · $${Number(item.price).toFixed(2)} · ★ ${item.rating}${item.in_stock ? '' : ' · Out of stock'}`; box.append(detail);
+        const why = document.createElement('small'); why.textContent = item.why; box.append(why); target.append(box);
+      }
+      form.addEventListener('submit', async event => {
+        event.preventDefault(); status.textContent = 'Searching…';
+        for (const id of ['keyword', 'hybrid', 'suggestions']) document.getElementById(id).replaceChildren();
+        const params = new URLSearchParams({q: document.querySelector('#q').value});
+        const price = document.querySelector('#price').value, category = document.querySelector('#category').value;
+        if (price) params.set('max_price', price);
+        if (category) params.set('category', category);
+        if (document.querySelector('#stock').checked) params.set('in_stock', 'true');
+        try {
+          const response = await fetch(`/api/search?${params}`); const data = await response.json();
+          if (!response.ok) throw new Error(data.error || data.detail || 'Search failed');
+          for (const [name, id] of [['keyword_results', 'keyword'], ['hybrid_results', 'hybrid']]) {
+            const target = document.getElementById(id);
+            if (!data[name].length) target.textContent = 'No matching products.';
+            data[name].forEach(item => card(item, target));
+          }
+          const suggestions = document.querySelector('#suggestions');
+          if (!data.suggestions.length) suggestions.textContent = 'None needed.';
+          for (const item of data.suggestions) {
+            if (item.product) { const label = document.createElement('p'); label.textContent = item.label; suggestions.append(label); card(item.product, suggestions); }
+            else { const line = document.createElement('p'); line.textContent = item.type === 'relax_price' ? `Try a price up to $${item.max_price.toFixed(2)}` : item.type === 'remove_category' ? 'Try all categories' : `Did you mean ${item.text}?`; suggestions.append(line); }
+          }
+          status.textContent = `Done in ${data.latency_ms.toFixed(0)} ms · ${data.backend} · weight ${data.weight}`;
+        } catch (error) { status.textContent = `Error: ${error.message}`; }
+      });
+    </script>
   </body>
 </html>

@@ -1,5 +1,14 @@
 # Decisions
 
+## Phase 5: API and synthetic search page
+
+- Decision: load the active encoder and normalized embeddings matrix once in FastAPI lifespan, serve the dev-selected weight 0.25, and log searches with a fail-soft SQLite write. Show real relaxed-filter and outside-filter suggestions only when a method is empty.
+- Alternatives considered: loading the model on every request or treating nearest neighbours as proof of relevance.
+- Reason: startup caching keeps requests responsive and measured startup working set was 218.2 MB (252.2 MB peak) on local Windows, below the 512 MB Render free-tier limit. The API reports no confidence flag because the off-catalogue cosine scores overlap answerable scores.
+- Deployment check: build_data.py runs data_gen.py then embed.py with checked subprocesses and does not invoke phase4b.py test. results.json is tracked in Git and served byte-for-byte by /api/eval. The results were measured locally on Windows; a Linux rebuild on Render may differ slightly in embeddings.
+- Files changed: api.py, static/index.html, tests/test_guardrails.py, DECISIONS.md.
+- Commands to run: `python -m pytest tests --confcutdir=.` and `uvicorn api:app --host 127.0.0.1 --port 8000` after installing requirements.
+
 ## Phase 1: repository skeleton
 
 - Decision: keep the API to a health route and a static placeholder, with data generation as a print-only stub.
